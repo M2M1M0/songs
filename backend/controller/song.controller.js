@@ -1,9 +1,16 @@
 import Song from "../model/songs.model.js"
 
+
 // ================================ create song ==================================//
 export const createSong = async (req, res) => {
+
+    // console.log(req.file)
+    const { title, artist, album, genre } = req.body
+    const url = req.file?.filename
     try {
-        const saveSong = await Song.create(req.body)
+        const saveSong = await Song.create({
+            title, artist, album, genre, url
+        })
         res.status(201).json(saveSong)
     } catch (error) {
         throw new Error(error)
