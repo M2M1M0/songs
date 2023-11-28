@@ -44,21 +44,24 @@ const UpdateSong = () => {
 
 
   return (
-    <div className="flex flex-col p-12">
-      <h2>Add a Song</h2>
+    <div className="flex flex-col p-12 ml-8">
+      <h2 className="text-3xl text-white font-bold">Update a Song</h2>
       <form onSubmit={handleSubmit}
-        className="flex flex-col gap-5 my-8 w-[350px]" >
+        className="flex flex-col gap-5 my-8 w-[350px] mt-16" >
         <Input onChange={handleChange} name="title" value={song.title}
+          style={{ color: "#fff", fontWeight: 500, fontSize: "16px" }}
           variant="standard" label="Title" crossOrigin="anonymous" />
         <Input onChange={handleChange} name="artist" value={song.artist}
+          style={{ color: "#fff", fontWeight: 500, fontSize: "16px" }}
           variant="standard" label="Artist" crossOrigin="anonymous" />
         <Input onChange={handleChange} name="album" value={song.album}
+          style={{ color: "#fff", fontWeight: 500, fontSize: "16px" }}
           variant="standard" label="Album" crossOrigin="anonymous" />
         <Input onChange={handleChange} name="genre" value={song.genre}
+          style={{ color: "#fff", fontWeight: 500, fontSize: "16px" }}
           variant="standard" label="Genre" crossOrigin="anonymous" />
-
         <div className="mt-8">
-          <Button type="submit">Update</Button>
+          <Button type="submit" className="bg-teal-700 hover:opacity-80">Update</Button>
         </div>
       </form>
     </div>
