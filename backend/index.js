@@ -12,6 +12,8 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+// static foldr
+app.use("/uploads", express.static("uploads"))
 
 //Routes
 app.use("/song", songRouter)
