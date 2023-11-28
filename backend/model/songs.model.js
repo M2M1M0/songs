@@ -2,22 +2,16 @@ import mongoose from "mongoose";
 
 
 const songSchema = new mongoose.Schema({
-    title: {
-        type: String
+    title:String,
+    artist:String,
+    album:String,
+    genre:String,
+    url:String,
+    cover:{
+        type: String,
+        default: "https://th.bing.com/th/id/OIP.PNDFPBXSfJ9LttZQalbzTgHaEK?rs=1&pid=ImgDetMain"
     },
-    artist: {
-        type: String
-    },
-    album: {
-        type: String
-    },
-    genere: {
-        type: String
-    },
-    url: {
-        type: String
-    }
-    
+   
 }, { timestamps: true })
 
 const Song = mongoose.model("Song", songSchema)
