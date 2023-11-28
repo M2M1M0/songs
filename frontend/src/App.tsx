@@ -10,8 +10,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className='flex w-full'>
-        <div className='flex w-[160px]'>
+      <div className='flex w-full bg-inherit'>
+        <div className='flex md:w-[160px]'>
           <Sidebar />
         </div>
         <div className='flex flex-1'>

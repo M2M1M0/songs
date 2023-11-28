@@ -6,6 +6,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Tooltip } from "@material-tailwind/react";
 
+
 type songState = {
   url: string;
   id: string;
@@ -16,11 +17,9 @@ const PlayStation = ({ url, id }: songState) => {
   const handleUpdate = async (id: string) => {
     navigate(`/update-song/${id}`)
   }
-  const [hidden, setHidden] = useState(false)
   const handleDelete = async (id: string) => {
     try {
       await axios.delete(`http://localhost:8800/song/${id}`)
-      setHidden(true)
       navigate("/")
     } catch (error) {
       console.log(error)
@@ -37,10 +36,10 @@ const PlayStation = ({ url, id }: songState) => {
   }, [id])
 
   return (
-    <div className="px-5 bg-transparent py-2 w-2/3 gap-3 flex justify-around items-center">
-      <div>
+    <div className="px-5 bg-transparent max-w-[700px] py-2 gap-3 flex flex-col-reverse md:flex-row justify-start md:justify-center items-center">
+      <div className="">
         {id &&
-          <div className={`${hidden ? "hidden" : "flex"} justify-end w-full gap-8 bg-white p-3 rounded-3xl px-5`}>
+          <div className={`flex justify-end w-full gap-8 bg-white p-3 rounded-3xl px-5`}>
             <p className="text-lg whitespace-nowrap">{song}</p>
             <div className="flex gap-2">
               <Tooltip content="Edit" placement="top" animate={{ mount: { scale: 1, y: 0 }, unmount: { scale: 0, y: 25 }, }}>
@@ -57,14 +56,13 @@ const PlayStation = ({ url, id }: songState) => {
           </div>
         }
       </div>
-      <div>
-        <ReactAudioPlayer
+      <div className="w-full">
+        <ReactAudioPlayer className="max-w-[250px] md:w-full"
           src={`http://localhost:8800/uploads/${url}`}
           controls
           autoPlay
         />
       </div>
-
     </div >
   )
 }
