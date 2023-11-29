@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from "react"
 import axios from "axios"
 import { start, createSongSuccess, createSongFailer } from "../redux/songSlice"
 import { useDispatch, useSelector } from "react-redux";
+import { BASE_URL } from "../baseurl";
 
 type SongState = {
   title: string;
@@ -55,7 +56,7 @@ const AddSong = () => {
 
       try {
         dispatch(start())
-        const result = await axios.post("http://localhost:8800/song/create-song", formData)
+        const result = await axios.post(`${BASE_URL}/song/create-song`, formData)
         dispatch(createSongSuccess(result.data))
         setSuccess("Song Added")
       } catch (error: any) {
@@ -89,7 +90,8 @@ const AddSong = () => {
           style={{ color: "#fff", fontWeight: 500, fontSize: "16px" }}
           variant="standard" label="Genre" crossOrigin="anonymous" />
 
-        <Input onChange={handleFile} type="file" name="music" value={""}
+        <Input onChange={handleFile} type="file" name="music" accept="audio/*"
+          style={{ color: "#fff", fontWeight: 500, fontSize: "16px", paddingLeft: "5px" }}
           variant="standard" label="Genre" crossOrigin="anonymous" />
         <div className="mt-8 flex md:justify-end">
           <Button disabled={loading}

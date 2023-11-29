@@ -1,7 +1,7 @@
 import { Card } from "@material-tailwind/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
-
+import { BASE_URL } from "../../baseurl"
 
 
 const Totals = () => {
@@ -12,25 +12,25 @@ const Totals = () => {
 
     useEffect(() => {
         const toralSongs = async () => {
-            const result = await axios.get("http://localhost:8800/song/totals/count")
+            const result = await axios.get(`${BASE_URL}/song/totals/count`)
             setTotalSongs(result.data)
             toralArtist()
         }
 
         const toralArtist = async () => {
-            const result = await axios.get("http://localhost:8800/song/total/artist")
+            const result = await axios.get(`${BASE_URL}/song/total/artist`)
             setTotalArtist(result.data)
             toralAlbum()
         }
 
         const toralAlbum = async () => {
-            const result = await axios.get("http://localhost:8800/song/total/album")
+            const result = await axios.get(`${BASE_URL}/song/total/album`)
             setTotalAlbum(result.data)
             toralGenre()
         }
 
         const toralGenre = async () => {
-            const result = await axios.get("http://localhost:8800/song/total/genre")
+            const result = await axios.get(`${BASE_URL}/song/total/genre`)
             setTotalGenre(result.data)
         }
 

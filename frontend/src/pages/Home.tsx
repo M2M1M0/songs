@@ -4,6 +4,7 @@ import PlayStation from "../components/PlayStation";
 import Discover from "../components/Discover";
 import { useDispatch, useSelector } from "react-redux";
 import { setSongs } from "../redux/songSlice";
+import { BASE_URL } from "../baseurl";
 
 const Home = () => {
   const { songs } = useSelector((state: any) => state?.song ?? {})
@@ -19,8 +20,9 @@ const Home = () => {
 
   useEffect(() => {
     const fetchSongs = async () => {
-      const response = await axios.get("http://localhost:8800/song")
+      const response = await axios.get(`${BASE_URL}/song`)
       dispatch(setSongs(response.data))
+      // console.log(response.data)
     }
     fetchSongs()
   }, [])

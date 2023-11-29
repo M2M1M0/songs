@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-
+import { BASE_URL } from "../baseurl"
 
 
 const Discover = () => {
@@ -11,7 +11,7 @@ const Discover = () => {
   useEffect(() => {
     const fetchSongByCat = async () => {
       if (catName) {
-        const response = await axios.get(`http://localhost:8800/song/getByCat/${catName}`)
+        const response = await axios.get(`${BASE_URL}/song/getByCat/${catName}`)
         setCat(response.data)
       }
     }

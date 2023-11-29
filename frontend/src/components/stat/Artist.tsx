@@ -1,6 +1,7 @@
 import { Card } from "@material-tailwind/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { BASE_URL } from "../../baseurl"
 
 type SongState = {
     _id: string;
@@ -14,7 +15,7 @@ const Artist = () => {
 
     useEffect(() => {
         const artists = async () => {
-            const result = await axios.get("http://localhost:8800/song/songs/songs-Album")
+            const result = await axios.get(`${BASE_URL}/song/songs/songs-Album`)
             setArtists(result.data)
             console.log(result.data)
         }

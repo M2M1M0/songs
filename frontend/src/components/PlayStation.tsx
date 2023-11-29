@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Tooltip } from "@material-tailwind/react";
-
+import { BASE_URL } from "../baseurl";
 
 type songState = {
   url: string;
@@ -19,7 +19,7 @@ const PlayStation = ({ url, id }: songState) => {
   }
   const handleDelete = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:8800/song/${id}`)
+      await axios.delete(`${BASE_URL}/song/${id}`)
       navigate("/")
     } catch (error) {
       console.log(error)
@@ -29,7 +29,7 @@ const PlayStation = ({ url, id }: songState) => {
   const [song, setSong] = useState("")
   useEffect(() => {
     const fetchSong = async () => {
-      const result = await axios.get(`http://localhost:8800/song/${id}`)
+      const result = await axios.get(`${BASE_URL}/song/${id}`)
       setSong(result.data.title)
     }
     fetchSong()
@@ -58,7 +58,7 @@ const PlayStation = ({ url, id }: songState) => {
       </div>
       <div className="w-full">
         <ReactAudioPlayer className="max-w-[230px] md:w-full"
-          src={`http://localhost:8800/uploads/${url}`}
+          src={`${url}`}
           controls
           autoPlay
         />

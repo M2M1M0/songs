@@ -1,6 +1,8 @@
 import { Card } from "@material-tailwind/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { BASE_URL } from "../../baseurl"
+
 
 type SongState = {
   _id: string;
@@ -14,19 +16,19 @@ const Each = () => {
 
   useEffect(() => {
     const artists = async () => {
-      const result = await axios.get("http://localhost:8800/song/songs/eachArtist")
+      const result = await axios.get(`${BASE_URL}/song/songs/eachArtist`)
       setArtists(result.data)
       albums()
     }
 
     const albums = async () => {
-      const result = await axios.get("http://localhost:8800/song/songs/eachAlbum")
+      const result = await axios.get(`${BASE_URL}/song/songs/eachAlbum`)
       setAlbums(result.data)
       genres()
     }
 
     const genres = async () => {
-      const result = await axios.get("http://localhost:8800/song/songs/eachGenre")
+      const result = await axios.get(`${BASE_URL}/song/songs/eachGenre`)
       setGenres(result.data)
     }
 

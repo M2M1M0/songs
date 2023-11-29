@@ -4,6 +4,7 @@ import axios from "axios"
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateSongSuccess, updateSongFailer } from "../redux/songSlice";
+import { BASE_URL } from "../baseurl";
 
 type SongState = {
   title?: string;
@@ -31,7 +32,7 @@ const UpdateSong = () => {
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
-      const result = await axios.put(`http://localhost:8800/song/${id}`, song)
+      const result = await axios.put(`${BASE_URL}/song/${id}`, song)
       dispatch(updateSongSuccess(result.data))
 
     } catch (error: any) {
@@ -43,7 +44,7 @@ const UpdateSong = () => {
 
   useEffect(() => {
     const fetchSong = async () => {
-      const result = await axios.get(`http://localhost:8800/song/${id}`)
+      const result = await axios.get(`${BASE_URL}/song/${id}`)
       setSong(result.data)
     }
     fetchSong()
