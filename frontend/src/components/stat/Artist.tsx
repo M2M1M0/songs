@@ -17,7 +17,7 @@ const Artist = () => {
         const artists = async () => {
             const result = await axios.get(`${BASE_URL}/song/songs/songs-Album`)
             setArtists(result.data)
-            console.log(result.data)
+            // console.log(result.data)
         }
         artists()
     }, [])

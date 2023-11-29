@@ -45,8 +45,8 @@ const Each = () => {
             <span className="font-semibold text-md text-blue-gray-400 ">Name</span>
             <span className="font-semibold text-md flex justify-center text-blue-gray-400">Songs</span>
           </div>
-          {genre && genre.map((genre) => (
-            <div className="grid grid-cols-2 w-[200px] border-b-[1px] border-gray-200">
+          {genre && genre.map((genre, index) => (
+            <div key={index} className="grid grid-cols-2 w-[200px] border-b-[1px] border-gray-200">
               <p className="text-sm">{genre._id}</p>
               <p className="text-sm flex justify-center">{genre.count}</p>
             </div>
@@ -62,8 +62,8 @@ const Each = () => {
             <span className="font-semibold text-md text-blue-gray-400">Name</span>
             <span className="font-semibold text-md flex justify-center text-blue-gray-400">Songs</span>
           </div>
-          {artist && artist.map((artist) => (
-            <div className="grid grid-cols-2 w-[200px] border-b-[1px] border-gray-200">
+          {artist && artist.map((artist, index) => (
+            <div key={index} className="grid grid-cols-2 w-[200px] border-b-[1px] border-gray-200">
               <p className="text-sm truncate">{artist._id}</p>
               <p className="text-sm flex justify-center">{artist.count}</p>
             </div>
@@ -79,8 +79,8 @@ const Each = () => {
             <span className="font-semibold text-md text-blue-gray-400">Name</span>
             <span className="font-semibold text-md flex justify-center text-blue-gray-400">Songs</span>
           </div>
-          {album && album.map((album) => (
-            <div className="grid grid-cols-2 w-[200px] border-b-[1px] border-gray-200">
+          {album && album.map((album, index) => (
+            <div key={index} className="grid grid-cols-2 w-[200px] border-b-[1px] border-gray-200">
               <p className="text-sm">{album._id}</p>
               <p className="text-sm flex justify-center">{album.count}</p>
             </div>
