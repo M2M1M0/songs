@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const Sidebar = () => {
 
   return (
-    <div className=" bg-cover bg-[url('https://th.bing.com/th/id/R.d468cb87649a0237036e8f34ef93c07a?rik=%2fhEQlhKQ9XMmjw&pid=ImgRaw&r=0')] h-screen w-full bg-transparent relative border-r-[1.2px] border-[#292347]">
+    <div className=" bg-cover bg-[url('https://th.bing.com/th/id/R.d468cb87649a0237036e8f34ef93c07a?rik=%2fhEQlhKQ9XMmjw&pid=ImgRaw&r=0')] h-[100dvh] w-full bg-transparent relative border-r-[1.2px] border-[#292347]">
       <div className='flex flex-col gap-6  '>
 
         <div className='flex flex-col'>
@@ -17,14 +17,19 @@ const Sidebar = () => {
             <Link to={"/"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
               Songs
             </Link>
-            <Link to={"/album"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
-              Album
-            </Link>
-            <Link to={"/artist"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
-              Artist
-            </Link>
-            <Link to={"/genre"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
-              Genre
+            <div className="hidden md:flex md:flex-col">
+              <Link to={"/album"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
+                Album
+              </Link>
+              <Link to={"/artist"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
+                Artist
+              </Link>
+              <Link to={"/genre"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
+                Genre
+              </Link>
+            </div>
+            <Link to={"/stat"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
+              Stat
             </Link>
           </div>
 

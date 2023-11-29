@@ -1,7 +1,6 @@
 import { Input, Button } from "@material-tailwind/react"
 import { ChangeEvent, useState } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom";
 import { start, createSongSuccess, createSongFailer } from "../redux/songSlice"
 import { useDispatch, useSelector } from "react-redux";
 
@@ -20,7 +19,7 @@ const initial: SongState = {
   genre: "",
 }
 const AddSong = () => {
-  const navigate = useNavigate()
+  const [success, setSuccess] = useState("")
   const dispatch = useDispatch()
   const { error, loading } = useSelector((state: any) => state?.song ?? {})
 
@@ -49,22 +48,23 @@ const AddSong = () => {
     if (song.audio) {
       formData.append("audio", song.audio);
     }
+    const { title, artist, album, genre, audio } = song
+    if (title === "" || artist === "" || album === "" || genre === "" || audio === undefined) {
+      alert("please fill all the fields")
+    } else {
 
-    try {
-      dispatch(start())
-      const result = await axios.post("http://localhost:8800/song/create-song", formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      dispatch(createSongSuccess(result.data))
-      navigate("/")
-    } catch (error: any) {
-      console.log(error, "errrrrrr")
-      dispatch(createSongFailer(error.message))
+      try {
+        dispatch(start())
+        const result = await axios.post("http://localhost:8800/song/create-song", formData)
+        dispatch(createSongSuccess(result.data))
+        setSuccess("Song Added")
+      } catch (error: any) {
+        console.log(error, "errrrrrr")
+        dispatch(createSongFailer(error.message))
 
-    } finally {
-      setSong(initial)
+      } finally {
+        setSong(initial)
+      }
     }
   }
 
@@ -74,7 +74,8 @@ const AddSong = () => {
       <h2 className="text-3xl text-white font-bold">Add a Song</h2>
       <form onSubmit={handleSubmit}
         className="flex flex-col gap-5 my-8 md:w-[350px]" >
-          {error && <p className="p-3 text-red-500 bg-red-100 text-sm">{error}</p>}
+        {error && <p className="p-3 text-red-500 bg-red-100 text-sm">{error}</p>}
+        {success !== "" && <p className="p-3 text-teal-500 bg-teal-100 text-sm">{success}</p>}
         <Input onChange={handleChange} name="title" value={song.title}
           style={{ color: "#fff", fontWeight: 500, fontSize: "16px", paddingLeft: "5px" }}
           variant="standard" label="Title" crossOrigin="anonymous" />

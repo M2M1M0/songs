@@ -41,23 +41,23 @@ const PlayStation = ({ url, id }: songState) => {
         {id &&
           <div className={`flex justify-end w-full gap-8 bg-white p-3 rounded-3xl px-5`}>
             <p className="text-lg whitespace-nowrap">{song}</p>
-            <div className="flex gap-2">
+            <form onSubmit={() => handleDelete(id)} className="flex gap-2">
               <Tooltip content="Edit" placement="top" animate={{ mount: { scale: 1, y: 0 }, unmount: { scale: 0, y: 25 }, }}>
-                <button className="text-lg text-orange-500" onClick={() => handleUpdate(id)}>
+                <button type="button" className="text-lg text-orange-500" onClick={() => handleUpdate(id)}>
                   <FaEdit />
                 </button>
               </Tooltip>
               <Tooltip content="Delete" placement="top" animate={{ mount: { scale: 1, y: 0 }, unmount: { scale: 0, y: 25 }, }}>
-                <button className="text-lg text-pink-500" onClick={() => handleDelete(id)}>
+                <button type="submit" className="text-lg text-pink-500" >
                   <MdDelete />
                 </button>
               </Tooltip>
-            </div>
+            </form>
           </div>
         }
       </div>
       <div className="w-full">
-        <ReactAudioPlayer className="max-w-[250px] md:w-full"
+        <ReactAudioPlayer className="max-w-[230px] md:w-full"
           src={`http://localhost:8800/uploads/${url}`}
           controls
           autoPlay
