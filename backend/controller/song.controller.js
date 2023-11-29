@@ -4,9 +4,10 @@ import Song from "../model/songs.model.js"
 // ================================ create song ==================================//
 export const createSong = async (req, res) => {
 
-    // console.log(req.file)
     const { title, artist, album, genre } = req.body
-    const url = req.file?.filename
+    const url = req.file?.path
+    // console.log(req.file)
+    
     try {
         const saveSong = await Song.create({
             title, artist, album, genre, url

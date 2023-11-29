@@ -5,10 +5,9 @@ import {
     totalSongs, countBy,
     eachGenre, eachAlbum, eachArtist, songsAndAlbum
 } from "../controller/song.controller.js"
-import upload from "../middleware/upload.js"
 const router = express.Router()
 
-router.post("/create-song", upload.single("audio"), createSong)
+router.post("/create-song", createSong)
 router.get("/", getSongs)
 router.get("/:id", getSong)
 router.put("/:id", updateSong)
