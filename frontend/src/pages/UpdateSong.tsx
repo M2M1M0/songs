@@ -22,6 +22,7 @@ const initial: SongState = {
 const UpdateSong = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
+  const [success, setSuccess] = useState("")
   const { error, loading } = useSelector((state: any) => state?.song ?? {})
 
   const [song, setSong] = useState(initial)
@@ -34,11 +35,10 @@ const UpdateSong = () => {
     try {
       const result = await axios.put(`${BASE_URL}/song/${id}`, song)
       dispatch(updateSongSuccess(result.data))
-
+      setSuccess("Update Success")
     } catch (error: any) {
       console.log(error)
       dispatch(updateSongFailer(error.message))
-
     }
   }
 
@@ -57,6 +57,7 @@ const UpdateSong = () => {
       <form onSubmit={handleSubmit}
         className="flex flex-col gap-5 my-8 md:w-[350px] mt-16" >
         {error && <p className="p-3 text-red-500 bg-red-100 text-sm">{error}</p>}
+        {success !== "" && <p className="p-3 text-teal-500 bg-teal-100 text-sm">{success}</p>}
         <Input onChange={handleChange} name="title" value={song?.title}
           style={{ color: "#fff", fontWeight: 500, fontSize: "16px" }}
           variant="standard" label="Title" crossOrigin="anonymous" />
