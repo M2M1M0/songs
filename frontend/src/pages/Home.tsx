@@ -3,11 +3,12 @@ import axios from "axios"
 import PlayStation from "../components/PlayStation";
 import Discover from "../components/Discover";
 import { useDispatch, useSelector } from "react-redux";
-import { setSongs } from "../redux/songSlice";
+import { setSongs, start } from "../redux/songSlice";
 import { BASE_URL } from "../baseurl";
+import { SpinnerComponent } from 'react-element-spinner';
 
 const Home = () => {
-  const { songs } = useSelector((state: any) => state?.song ?? {})
+  const { songs, loading } = useSelector((state: any) => state?.song ?? {})
   const dispatch = useDispatch()
   const [id, setID] = useState("")
 
@@ -20,24 +21,28 @@ const Home = () => {
 
   useEffect(() => {
     const fetchSongs = async () => {
+      dispatch(start())
       const response = await axios.get(`${BASE_URL}/song`)
       dispatch(setSongs(response.data))
       // console.log(response.data)
     }
     fetchSongs()
   }, [])
-  
+
 
 
   return (
     <div className="flex flex-col w-full relative">
       <div className="flex gap-3 h-screen w-full ">
-      <div className="md:ml-3 max-h-[500px] overflow-y-auto">
+        <div className="md:ml-3 max-h-[500px] overflow-y-auto">
           <h2 className="text-2xl p-8 text-white">All Songs</h2>
-          <div className="flex flex-wrap gap-3 px-5  md:w-[700px]">
+          {loading && <div>
+            <SpinnerComponent loading={true} position="global" />
+          </div>}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-5  md:w-[700px]">
             {songs !== null && songs.length > 0 && songs?.map((song: any) => (
               <div key={song._id}
-                className="flex flex-col gap-1 md:w-[140px] w-[100px] h-fit bg-[#1a1159] shadow-xl rounded-t-xl p-2">
+                className="flex flex-col gap-1 md:w-[140px] w-[90px] h-fit bg-[#1a1159] shadow-xl rounded-t-xl p-2">
                 <div onClick={() => playMusic(song.url, song._id)}>
                   <img src={`${song.cover}`} alt="" className="md:w-[130px] w-[95px] h-[70px] md:h-[90px] cursor-pointer rounded-md  object-cover" />
                 </div>

@@ -33,6 +33,7 @@ export const songSlice = createSlice({
     },
     setSongs: (state, action) => {
       state.songs = action.payload
+      state.loading = false
     },
   }
 })
