@@ -8,8 +8,8 @@ const Stat = () => {
       <h2 className="flex  text-2xl text-red-600 font-semibold">
         Statistics
       </h2>
-      <div className="flex flex-col max-w-[800px]  gap-5 p-2">
-        <div className="flex flex-col md:flex-row gap-5">
+      <div className="flex flex-col w-full  gap-5 p-2">
+        <div className="flex flex-row gap-5">
           {/* Total */}
           <Totals />
 

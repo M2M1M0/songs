@@ -23,7 +23,7 @@ const Artist = () => {
     }, [])
 
     return (
-        <div className="w-[250px] md:w-full overflow-x-auto">
+        <div className="w-full overflow-x-auto">
             <Card className="p-5 w-[500px]  flex flex-col gap-3">
                 <div className="grid grid-cols-4 w-full border-b-2 pb-1 border-cyan-500">
                     <h2 className="text-cyan-900 flex justify-center">#</h2>

@@ -7,12 +7,14 @@ import { BASE_URL } from "../baseurl"
 const Discover = () => {
   const { catName } = useParams()
   const [cat, setCat] = useState([])
+  console.log(catName)
 
   useEffect(() => {
     const fetchSongByCat = async () => {
       if (catName) {
         const response = await axios.get(`${BASE_URL}/song/getByCat/${catName}`)
         setCat(response.data)
+        console.log(response.data)
       }
     }
     fetchSongByCat()

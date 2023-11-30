@@ -8,26 +8,20 @@ const Sidebar = () => {
       <div className='flex flex-col gap-6  '>
 
         <div className='flex flex-col'>
-          {/* <div className='flex flex-col items-center justify-center p-4 gap-1'>
-            <img src=""
-              alt="" className="w-full h-20  " />
-          </div> */}
 
           <div className='flex flex-col text-[#edc5c5] font-normal py-8 mt-16'>
             <Link to={"/"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
               Songs
             </Link>
-            <div className="hidden md:flex md:flex-col">
-              <Link to={"/album"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
-                Album
-              </Link>
-              <Link to={"/artist"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
-                Artist
-              </Link>
-              <Link to={"/genre"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
-                Genre
-              </Link>
-            </div>
+            <Link to={"/album"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
+              Album
+            </Link>
+            <Link to={"/artist"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
+              Artist
+            </Link>
+            <Link to={"/genre"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
+              Genre
+            </Link>
             <Link to={"/stat"} className="w-full px-8  hover:text-white p-3 cursor-pointer  font-semibold">
               Stat
             </Link>

@@ -36,9 +36,9 @@ const Each = () => {
   }, [])
 
   return (
-    <div className="flex flex-col md:flex-row  gap-3">
+    <div className="flex flex-row  gap-3">
       {/* Each Genre */}
-      <Card className="flex flex-col gap-3 w-[250px] md:w-[260px] overflow-x-auto h-fit px-6 pt-3 pb-8  border-r-4 rounded-md border-b-[1px] border-cyan-500">
+      <Card className="flex flex-col gap-3 w-[260px] overflow-x-auto h-fit px-6 pt-3 pb-8  border-r-4 rounded-md border-b-[1px] border-cyan-500">
         <h2 className="flex text-teal-500 underline font-bold"> Genre</h2>
         <div className="flex flex-col gap-1 items-center ">
           <div className="grid grid-cols-2 w-[200px] border-b-[3px] border-teal-500">
@@ -55,7 +55,7 @@ const Each = () => {
       </Card>
 
       {/* Each Artist */}
-      <Card className="flex flex-col gap-3 w-[250px] md:w-[260px] overflow-x-auto h-fit px-6 pt-3 pb-8  border-r-4 rounded-md border-b-[1px] border-cyan-500">
+      <Card className="flex flex-col gap-3 w-[260px] overflow-x-auto h-fit px-6 pt-3 pb-8  border-r-4 rounded-md border-b-[1px] border-cyan-500">
         <h2 className="flex text-teal-500 underline font-bold">Artist</h2>
         <div className="flex flex-col gap-1 items-center ">
           <div className="grid grid-cols-2 w-[200px] border-b-[3px] border-teal-500">
@@ -72,7 +72,7 @@ const Each = () => {
       </Card>
 
       {/* Each Album */}
-      <Card className="flex flex-col gap-3 w-[250px] md:w-[260px] overflow-x-auto h-fit px-6 pt-3 pb-8  border-r-4 rounded-md border-b-[1px] border-cyan-500">
+      <Card className="flex flex-col gap-3 w-[260px] overflow-x-auto h-fit px-6 pt-3 pb-8  border-r-4 rounded-md border-b-[1px] border-cyan-500">
         <h2 className="flex text-teal-500 underline font-bold"> Album</h2>
         <div className="flex flex-col gap-1 items-center ">
           <div className="grid grid-cols-2 w-[200px] border-b-[3px] border-teal-500">

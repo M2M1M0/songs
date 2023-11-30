@@ -39,7 +39,7 @@ const Totals = () => {
 
     return (
         <div className="flex flex-col gap-3 ">
-            <Card className="flex flex-row justify-between items-center p-5 rounded-lg w-[250px] md:w-[200px]">
+            <Card className="flex flex-row justify-between items-center p-5 rounded-lg w-[200px]">
                 <div className="flex gap-1 items-center">
                     <div className="w-6 h-6 bg-cyan-500 border-4 rounded-full" />
                     <h2 className="text-md font-sans">Total Songs</h2>
@@ -49,7 +49,7 @@ const Totals = () => {
                 </div>
             </Card>
 
-            <Card className="flex flex-row justify-between items-center p-5 rounded-lg w-[250px] md:w-[200px]">
+            <Card className="flex flex-row justify-between items-center p-5 rounded-lg w-[200px]">
                 <div className="flex gap-1 items-center">
                     <div className="w-6 h-6 bg-cyan-500 border-4 rounded-full" />
                     <h2 className="text-md font-sans">Artists</h2>
@@ -59,7 +59,7 @@ const Totals = () => {
                 </div>
             </Card>
 
-            <Card className="flex flex-row justify-between items-center p-5 rounded-lg w-[250px] md:w-[200px]">
+            <Card className="flex flex-row justify-between items-center p-5 rounded-lg w-[200px]">
                 <div className="flex gap-1 items-center">
                     <div className="w-6 h-6 bg-cyan-500 border-4 rounded-full" />
                     <h2 className="text-md font-sans">Albums</h2>
@@ -69,7 +69,7 @@ const Totals = () => {
                 </div>
             </Card>
 
-            <Card className="flex flex-row justify-between items-center p-5 rounded-lg w-[250px] md:w-[200px]">
+            <Card className="flex flex-row justify-between items-center p-5 rounded-lg w-[200px]">
                 <div className="flex gap-1 items-center">
                     <div className="w-6 h-6 bg-cyan-500 border-4 rounded-full" />
                     <h2 className="text-md font-sans">Genre</h2>
